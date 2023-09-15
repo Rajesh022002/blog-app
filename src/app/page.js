@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import styles from './blog.module.css';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -19,7 +20,7 @@ function Blog() {
                             // Add any other headers as needed
                         },
                         body: JSON.stringify({
-                            page_number: 1,
+                            page_number: 0,
                             page_size: 10,
                         }), // Replace with your request data
                     },
@@ -66,59 +67,85 @@ function Blog() {
     console.log('mn', blogs);
     return (
         <>
-            <Head>
-                <title>Blog page</title>
-                <meta
-                    name="description"
-                    content="Search your Blog As per Your equirement"
-                />
-                <meta property="og:title" content="Default Title" />
-                <meta property="og:description" content="Default description" />
-                <meta property="og:image" content="/default-image.jpg" />
-                {/* Add more common meta tags as needed */}
-            </Head>
+            <div className={styles.main_div}>
+                <section className={styles.first_section}>
+                    <div className={styles.header_text}>
+                        <h1 className={styles.h1_blog}>Blog</h1>
+                        <h1 className={styles.h1_blog2}>
+                            Selection of insightful Content <br />
+                            Written By Peopal from our team
+                        </h1>
+                    </div>
+                    <div className={styles.first_section_card}>
+                        <div className={styles.card_image_section}>
+                            <Image
+                                src="/images/mobile.jfif"
+                                alt="mobile"
+                                width={500}
+                                height={350}
+                                className={styles.image_of_blog}
+                            />
+                        </div>
+                        <div className={styles.card_text_section}>
+                            <p className={styles.card_keywords}>
+                                product management
+                            </p>
 
-            <div>
-                {blogs.map((blog, index) => (
-                    <div key={blog._id}>
-                        <Link href={`/blog/${blog?._id}`}>
-                            <div className="Allcards" key={index}>
-                                <h3 className="mt-2 mb-2 lg:mt-4 text-3xl lg:text-3xl font-bold ">
-                                    {blog.title}
-                                </h3>
-                                <p className="mb-2">
-                                    Published on&nbsp;
-                                    {formatDate(blog.uploadDate)}
-                                    &nbsp;by
-                                    <span className="text-danger ml-2 font-bold">
-                                        Jaya Joshi
-                                    </span>
+                            <h1 className={styles.card_header_text}>
+                                {blogs[0]?.title}
+                            </h1>
+                            <p className={styles.description}>
+                                {shorten(blogs[0]?.description) ||
+                                    'Marketing research could be used to delve deep into a consumer’s mind to uncover some of the hidden reasons or thought processes that go into making a purchase decision for the type of goods being considered. An independent market research consultant will make this job easier for you. Read the blog '}
+                            </p>
+                            <hr className={styles.hr_line}></hr>
+                            <div className={styles.bottom_div_text}>
+                                <span>{formatDate(blogs[0]?.uploadDate)}</span>
+                                <p className={styles.read_more_tag}>
+                                    Read More --&gt;
                                 </p>
-                                <div className="imagecardanddescription">
-                                    <Image
-                                        src={
-                                            'https://task.appsdeployer.com/api/' +
-                                            blog.titleImage
-                                        }
-                                        fill
-                                        alt="placeholder-blog"
-                                        className="object-fit"
-                                    />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section className={styles.second_section}>
+                {blogs.map((blog, index) => (
+                    <Link href={`/blog/${blog?._id}`} key={index}>
+                        <div className={styles.second_section_card} key={index}>
+                            <div className={styles.card_image_section}>
+                                <Image
+                                    src="/images/mobile.jfif"
+                                    alt="mobile"
+                                    width={500}
+                                    height={320}
+                                    className={styles.second_image_of_blog}
+                                />
+                            </div>
+                            <div className={styles.card_text_section}>
+                                <p className={styles.card_keywords}>
+                                    product management
+                                </p>
 
-                                    <p className="text-xl">
-                                        {shorten(blog.description, 195)}
-
-                                        <br />
-                                        <span className="text-danger font-bold">
-                                            Read More...
-                                        </span>
+                                <h1 className={styles.card_header_text}>
+                                    {blog.title}
+                                </h1>
+                                <p className={styles.description}>
+                                    {shorten(blog.description) ||
+                                        'Marketing research could be used to delve deep into a consumer’s mind to uncover some of the hidden reasons or thought processes that go into making a purchase decision for the type of goods being considered. An independent market research consultant will make this job easier for you. Read the blog '}
+                                </p>
+                                <hr className={styles.hr_line}></hr>
+                                <div className={styles.bottom_div_text}>
+                                    <p>{formatDate(blog.uploadDate)}</p>
+                                    <p className={styles.read_more_tag}>
+                                        Read More --&gt;
                                     </p>
                                 </div>
                             </div>
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 ))}
-            </div>
+            </section>
         </>
     );
 }
