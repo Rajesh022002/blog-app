@@ -13,7 +13,8 @@ export async function generateMetadata({ params }) {
     // Generate metadata based on the fetched blog data
     return {
         title: blog && blog[0]?.title, // Set the title dynamically
-        description: blog && blog[0].description, // Set the description dynamically
+        description: blog && blog[0]?.description, // Set the description dynamically
+        Image: blog && 'https://task.appsdeployer.com/api/' + blog?.titleImage,
         // Add any other metadata fields you need
     };
 }
