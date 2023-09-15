@@ -1,0 +1,116 @@
+.main_div {
+    margin-top: 65px;
+    background: rgb(249, 250, 252);
+    background: radial-gradient(
+        circle,
+        rgba(249, 250, 252, 1) 0%,
+        rgba(214, 215, 216, 1) 100%
+    );
+}
+.first_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 42px 20px 50px 20px;
+    gap: 20px;
+}
+.header_text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 190px;
+}
+.first_section_card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.header_text .h1_blog {
+    color: rgb(236 72 153);
+    font-size: 3rem;
+    font-weight: 600;
+}
+.header_text .h1_blog2 {
+    color: #000;
+    font-size: 3rem;
+    font-weight: 600;
+}
+.card_image_section {
+    width: 100%;
+}
+.image_of_blog {
+    height: 320px;
+    border-radius: 6px 0px 0px 6px;
+}
+.card_text_section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.card_keywords {
+    background-color: rgb(59 130 246 / 13%);
+    border-radius: 13px;
+    padding: 0px 10px 2px 10px;
+    color: rgb(59 130 246 / 90%);
+    text-transform: capitalize;
+}
+.card_header_text {
+    font-size: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    width: 420px;
+    text-transform: capitalize;
+}
+.description {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 0.8rem;
+    font-weight: 400;
+    overflow: hidden;
+    width: 420px;
+    text-overflow: ellipsis;
+}
+/* second section */
+.second_section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0 20px 0;
+}
+.second_section_card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.second_image_of_blog {
+    height: 300px;
+    border-radius: 6px;
+}
+.bottom_div_text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.read_more_tag {
+    color: rgb(236 72 153);
+}
+.hr_line {
+    border: 1px solid rgba(214, 215, 216, 1);
+    width: 100%;
+    margin-top: 10px;
+}

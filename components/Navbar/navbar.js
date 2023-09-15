@@ -1,30 +1,24 @@
 // components/Navbar.tsx
 import Link from 'next/link';
+import styles from './navbar.module.css';
+import Image from 'next/image';
 
 const Navbar = () => {
     return (
-        <nav className="bg-blue-500 p-4">
-            <div className="container mx-auto flex justify-between items-center">
+        <nav className={styles.navbar_nav}>
+            <div className={styles.navbar_section}>
                 <Link href="/">
-                    <p className="text-white text-xl font-bold">Home</p>
+                    <Image
+                        src="/images/image1.png"
+                        alt="logo"
+                        className={styles.logo_image}
+                        width={200}
+                        height={50}
+                    />
                 </Link>
-                <ul className="flex space-x-4">
-                    <li>
-                        <Link href="/about">
-                            <p className="text-white">About</p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/contact">
-                            <p className="text-white">Contact</p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/blog">
-                            <p className="text-white">Blog</p>
-                        </Link>
-                    </li>
-                </ul>
+                <p className={styles.text_p}>
+                    Business is Tech 👨‍💻 & Passion is Environment 🌳
+                </p>
             </div>
         </nav>
     );
