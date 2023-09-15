@@ -9,7 +9,6 @@ export async function generateMetadata({ params }) {
     // Fetch the blog data
     const blog = await getBlogData(blogId);
 
-    console.log('ncnc', blog);
     // Generate metadata based on the fetched blog data
     return {
         title: blog && blog[0]?.title, // Set the title dynamically
@@ -34,7 +33,7 @@ async function BlogListingPage({ params: { blogId } }) {
         const lastTwoDigits = number % 100;
         return suffixes[lastDigit] || suffixes[lastTwoDigits] || suffixes[0];
     };
-    console.log('jjf', data);
+
     return (
         <div className={styles.main}>
             {data?.map((blogItem) => (

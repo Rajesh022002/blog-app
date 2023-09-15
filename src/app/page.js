@@ -42,8 +42,6 @@ function Blog() {
         requestAnimationFrame(scrollToTopAnimation);
     }
 
-    // Usage example: Call scrollToTop() when you want to scroll to the top of the page.
-
     const handlePageChange = useCallback((selected) => {
         fetchData(selected).then(() => {
             scrollToTop();
@@ -142,7 +140,7 @@ function Blog() {
                                         'https://task.appsdeployer.com/api/' +
                                         blogs[0]?.titleImage
                                     }
-                                    alt="mobile"
+                                    alt="blogImage"
                                     width={500}
                                     height={350}
                                     className={styles.image_of_blog}
@@ -191,7 +189,7 @@ function Blog() {
                                         'https://task.appsdeployer.com/api/' +
                                         blog?.titleImage
                                     }
-                                    alt="mobile"
+                                    alt="blogImage"
                                     width={500}
                                     height={320}
                                     className={styles.second_image_of_blog}

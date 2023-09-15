@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import Navbar from '../../components/Navbar/navbar';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
-    title: 'Blog Page',
+    title: 'Blog-Appsdeployer',
     description:
         'Creating delightful,customer-friendly tech products with excellence',
     Image: '/image/image1.png',
