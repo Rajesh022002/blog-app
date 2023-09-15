@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
+import {Pagination} from "@nextui-org/react";
+import "./page.css"
 
 function Blog() {
     const [blogs, setBlogs] = useState([]);
-
-    useEffect(() => {
+    const [page,setPage]=useState(1)
+useEffect(() => {
         async function fetchData() {
             try {
                 const response = await fetch(
@@ -38,7 +40,7 @@ function Blog() {
             }
         }
 
-        fetchData(); // Call the async function immediately
+    fetchData(); // Call the async function immediately
     }, []); // Empty dependency array to run this effect once on mount
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -64,6 +66,14 @@ function Blog() {
             : text;
     }
     console.log('mn', blogs);
+
+    const pagginationHandler = (page) => {
+        console.log(page)
+        let a=page.selected
+        setPage(a)
+        console.log(page)
+
+    };
     return (
         <>
             <Head>
@@ -118,7 +128,21 @@ function Blog() {
                         </Link>
                     </div>
                 ))}
+
+                
             </div>
+          
+         
+          <Pagination
+      total={10}
+      classNames={{
+        wrapper: "gap-0 overflow-visible h-8 rounded border border-divider my-10",
+        item: "w-8 h-8 text-small rounded-none bg-transparent",
+        cursor:
+          "bg-gradient-to-b shadow-lg from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold",
+      }}
+      onChange={pagginationHandler}
+    />
         </>
     );
 }
