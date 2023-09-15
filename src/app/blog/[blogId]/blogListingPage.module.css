@@ -1,0 +1,32 @@
+.main {
+width: 50%;
+    margin: 3rem auto;
+}
+.title {
+   font-size: 48px;
+}
+
+.publisher {
+    color: red;
+    font-weight: 600;
+    }
+/* .container{
+    
+    margin: 0 auto;
+} */
+
+@media screen and (min-width: 992px) {
+    .container {
+        width: 80%px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .main {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .main {
+        width: 80%;
+    }
+}

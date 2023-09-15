@@ -1,6 +1,6 @@
 // pages/blogs/index.tsx
-
 import React from 'react';
+import styles from "./blogListingPage.module.css"
 export async function generateMetadata({ params }) {
     // Read the blogId from the route params
     const { blogId } = params;
@@ -34,27 +34,23 @@ async function BlogListingPage({ params: { blogId } }) {
     };
     console.log('jjf', data);
     return (
-        <div>
-            <h1>Blog Listing Page</h1>
+        <div className={styles.main}>
+        <div >
+            {/* <h1>Blog Listing Page</h1> */}
             <ul>
                 {data?.map((blogItem) => (
-                    <div className="container" key={blogItem._id}>
-                        <div className="row ">
-                            <div className="col-sm-8 container">
+                    <div className={styles.container} key={blogItem._id}>
+                        <div className="">
+                            <div className="">
                                 <div
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <h1 className="mb-2">{blogItem.title}</h1>
+                                    >
+                                <h1 className={styles.title}>{blogItem.title}</h1>
                                 </div>
-                                <p className="mb-2">
+                                <p className="">
                                     Published on&nbsp;
                                     {formatDate(blogItem.uploadDate)}
                                     &nbsp;
-                                    <span className="text-danger ml-2 font-bold">
+                                    <span className={styles.publisher}>
                                         Jaya Joshi
                                     </span>
                                 </p>
@@ -68,6 +64,7 @@ async function BlogListingPage({ params: { blogId } }) {
                     </div>
                 ))}
             </ul>
+        </div>
         </div>
     );
 }
