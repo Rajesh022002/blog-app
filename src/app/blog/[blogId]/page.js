@@ -12,8 +12,20 @@ export async function generateMetadata({ params }) {
     // Generate metadata based on the fetched blog data
     return {
         title: blog && blog[0]?.title, // Set the title dynamically
-        description: blog && blog[0]?.description, // Set the description dynamically
-        Image: blog && 'https://task.appsdeployer.com/api/' + blog?.titleImage,
+        openGraph: {
+            description: blog && blog[0]?.description,
+            images: [
+                {
+                    url:
+                        'https://task.appsdeployer.com/api/' +
+                        blog[0]?.titleImage, // URL to your image
+                    width: 1200, // Image width
+                    height: 630, // Image height
+                    alt: 'Image Alt Text', // Alt text for the image
+                },
+            ],
+        },
+
         // Add any other metadata fields you need
     };
 }

@@ -4,9 +4,18 @@ import Navbar from '../../components/Navbar/navbar';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
     title: 'Blog-Appsdeployer',
-    description:
-        'Creating delightful,customer-friendly tech products with excellence',
-    Image: '/image/image1.png',
+    openGraph: {
+        description:
+            'Creating delightful,customer-friendly tech products with excellence',
+        images: [
+            {
+                url: '/images/image1.png', // URL to your image
+                width: 1200, // Image width
+                height: 630, // Image height
+                alt: 'Image Alt Text', // Alt text for the image
+            },
+        ],
+    },
 };
 export default function RootLayout({ children }) {
     return (
