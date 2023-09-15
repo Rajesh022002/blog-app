@@ -124,7 +124,13 @@
 
 .read_more_tag {
     color: rgb(236 72 153);
+    transition: linear 0.5s ease;
 }
+.read_more_tag:hover {
+    filter: brightness(1.3);
+    color: #000;
+}
+
 .hr_line {
     border: 1px solid rgba(214, 215, 216, 1);
     width: 100%;
