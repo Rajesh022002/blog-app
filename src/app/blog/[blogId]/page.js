@@ -1,6 +1,7 @@
 // pages/blogs/index.tsx
 import React from 'react';
-import styles from "./blogListingPage.module.css"
+import styles from './blogListingPage.module.css';
+import Link from 'next/link';
 export async function generateMetadata({ params }) {
     // Read the blogId from the route params
     const { blogId } = params;
@@ -35,36 +36,27 @@ async function BlogListingPage({ params: { blogId } }) {
     console.log('jjf', data);
     return (
         <div className={styles.main}>
-        <div >
-            {/* <h1>Blog Listing Page</h1> */}
-            <ul>
-                {data?.map((blogItem) => (
-                    <div className={styles.container} key={blogItem._id}>
-                        <div className="">
-                            <div className="">
-                                <div
-                                    >
-                                <h1 className={styles.title}>{blogItem.title}</h1>
-                                </div>
-                                <p className="">
-                                    Published on&nbsp;
-                                    {formatDate(blogItem.uploadDate)}
-                                    &nbsp;
-                                    <span className={styles.publisher}>
-                                        Jaya Joshi
-                                    </span>
-                                </p>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: blogItem.blog_content,
-                                    }}
-                                />
-                            </div>
-                        </div>
+            {data?.map((blogItem) => (
+                <div className={styles.container} key={blogItem._id}>
+                    <div>
+                        <h1 className={styles.title}>{blogItem.title}</h1>
                     </div>
-                ))}
-            </ul>
-        </div>
+                    <p className={styles.publish_date}>
+                        Published on&nbsp;
+                        {formatDate(blogItem.uploadDate)}
+                        &nbsp;
+                        <span className={styles.publisher}>Jaya Joshi</span>
+                    </p>
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: blogItem.blog_content,
+                        }}
+                    />
+                </div>
+            ))}
+            <Link href="/">
+                <button className={styles.back_button}>Back</button>
+            </Link>
         </div>
     );
 }

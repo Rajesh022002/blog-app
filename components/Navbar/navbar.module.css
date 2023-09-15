@@ -13,10 +13,16 @@
     align-items: center;
     justify-content: space-between;
 }
-.logo_image {
-    width: 100%;
-}
+
 .text_p {
     font-size: 1.3rem;
     color: #000;
+}
+@media screen and (max-width: 500px) {
+    .text_p {
+        display: none;
+    }
+    .navbar_section {
+        justify-content: center;
+    }
 }

@@ -1,20 +1,26 @@
 .main {
-width: 50%;
-    margin: 3rem auto;
+    width: 50%;
+    margin: 4.5rem auto auto;
 }
 .title {
-   font-size: 48px;
+    font-size: 48px;
 }
 
 .publisher {
     color: red;
     font-weight: 600;
-    }
-/* .container{
-    
-    margin: 0 auto;
-} */
+}
+.publish_date {
+    padding: 10px 0;
+}
 
+.back_button {
+    padding: 5px 15px;
+    background-color: #000;
+    color: white;
+    border-radius: 6px;
+    margin: 20px 0;
+}
 @media screen and (min-width: 992px) {
     .container {
         width: 80%px;
@@ -28,5 +34,9 @@ width: 50%;
 @media screen and (max-width: 576px) {
     .main {
         width: 80%;
+    }
+    .title {
+        font-weight: 600;
+        font-size: 23px;
     }
 }
