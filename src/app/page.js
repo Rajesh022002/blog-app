@@ -140,7 +140,7 @@ function Blog() {
                                         'https://task.appsdeployer.com/api/' +
                                         blogs[0]?.titleImage
                                     }
-                                    alt="blogImage"
+                                    alt=" "
                                     width={500}
                                     height={350}
                                     className={styles.image_of_blog}
@@ -189,7 +189,7 @@ function Blog() {
                                         'https://task.appsdeployer.com/api/' +
                                         blog?.titleImage
                                     }
-                                    alt="blogImage"
+                                    alt=""
                                     width={500}
                                     height={320}
                                     className={styles.second_image_of_blog}

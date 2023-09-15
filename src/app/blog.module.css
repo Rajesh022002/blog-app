@@ -47,6 +47,7 @@
 .image_of_blog {
     height: 320px;
     border-radius: 6px 0px 0px 6px;
+    background: rgba(0, 0, 0, 0.1);
 }
 .card_text_section {
     padding: 20px;
@@ -101,6 +102,7 @@
 .second_image_of_blog {
     height: 300px;
     border-radius: 6px;
+    background: rgba(0, 0, 0, 0.1);
 }
 .bottom_div_text {
     display: flex;
