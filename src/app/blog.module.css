@@ -28,6 +28,11 @@
     border-radius: 6px;
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all 0.5s ease-in-out;
+}
+.first_section_card:hover {
+    transform: scale(1.015);
+    filter: brightness(1.3);
 }
 .header_text .h1_blog {
     color: rgb(236 72 153);
@@ -98,6 +103,11 @@
     border-radius: 6px;
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all 0.5s ease-in-out;
+}
+.second_section_card:hover {
+    transform: scale(1.015);
+    filter: brightness(1.3);
 }
 .second_image_of_blog {
     height: 300px;
