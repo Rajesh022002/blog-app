@@ -138,119 +138,129 @@ function Blog() {
                             <span class="sr-only">Loading...</span>
                         </div>
                     ) : (
-                        <div className={styles.first_section_card}>
-                            <div className={styles.card_image_section}>
-                                {!imageErrors.includes(0) ? (
-                                    <Image
-                                        src={
-                                            'https://task.appsdeployer.com/api/' +
-                                            blogs[0]?.titleImage
-                                        }
-                                        alt=" "
-                                        width={500}
-                                        height={350}
-                                        className={styles.image_of_blog}
-                                        onError={() => handleImageError(0)}
-                                    />
-                                ) : (
-                                    <Image
-                                        src="/images/blog.jpeg"
-                                        alt=" "
-                                        width={500}
-                                        height={350}
-                                        className={styles.image_of_blog}
-                                    />
-                                )}
-                            </div>
-                            <div className={styles.card_text_section}>
-                                <p className={styles.card_keywords}>Blog</p>
-                                <h1 className={styles.card_header_text}>
-                                    {blogs[0]?.title}
-                                </h1>
-                                <p className={styles.description}>
-                                    {shorten(blogs[0]?.description, 300) || (
-                                        <span
-                                            dangerouslySetInnerHTML={{
-                                                __html: shorten(
-                                                    blogs[0]?.blog_content,
-                                                    300,
-                                                ),
-                                            }}
+                        <Link href={`/blog/${blogs[0]?._id}`}>
+                            <div className={styles.first_section_card}>
+                                <div className={styles.card_image_section}>
+                                    {!imageErrors.includes(0) ? (
+                                        <Image
+                                            src={
+                                                'https://task.appsdeployer.com/api/' +
+                                                blogs[0]?.titleImage
+                                            }
+                                            alt=" "
+                                            width={500}
+                                            height={350}
+                                            className={styles.image_of_blog}
+                                            onError={() => handleImageError(0)}
+                                        />
+                                    ) : (
+                                        <Image
+                                            src="/images/blog.jpeg"
+                                            alt=" "
+                                            width={500}
+                                            height={350}
+                                            className={styles.image_of_blog}
                                         />
                                     )}
-                                </p>
-                                <hr className={styles.hr_line}></hr>
-                                <div className={styles.bottom_div_text}>
-                                    <span>
-                                        {formatDate(blogs[0]?.uploadDate)}
-                                    </span>
-                                    <Link href={`/blog/${blogs[0]?._id}`}>
+                                </div>
+                                <div className={styles.card_text_section}>
+                                    <p className={styles.card_keywords}>Blog</p>
+                                    <h1 className={styles.card_header_text}>
+                                        {blogs[0]?.title}
+                                    </h1>
+                                    <p className={styles.description}>
+                                        {shorten(
+                                            blogs[0]?.description,
+                                            300,
+                                        ) || (
+                                            <span
+                                                dangerouslySetInnerHTML={{
+                                                    __html: shorten(
+                                                        blogs[0]?.blog_content,
+                                                        300,
+                                                    ),
+                                                }}
+                                            />
+                                        )}
+                                    </p>
+                                    <hr className={styles.hr_line}></hr>
+                                    <div className={styles.bottom_div_text}>
+                                        <span>
+                                            {formatDate(blogs[0]?.uploadDate)}
+                                        </span>
+
                                         <p className={styles.read_more_tag}>
                                             Read More --&gt;
                                         </p>
-                                    </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     )}
                 </section>
             </div>
             {!loading && (
                 <section className={styles.second_section}>
                     {blogs.slice(1).map((blog, index) => (
-                        <div className={styles.second_section_card} key={index}>
-                            <div className={styles.card_image_section}>
-                                {!imageErrors.includes(index) ? (
-                                    <Image
-                                        src={
-                                            'https://task.appsdeployer.com/api/' +
-                                            blog?.titleImage
-                                        }
-                                        alt=" "
-                                        width={500}
-                                        height={350}
-                                        className={styles.image_of_blog}
-                                        onError={() => handleImageError(index)}
-                                    />
-                                ) : (
-                                    <Image
-                                        src="/images/blog.jpeg"
-                                        alt=" "
-                                        width={500}
-                                        height={350}
-                                        className={styles.image_of_blog}
-                                    />
-                                )}
-                            </div>
-                            <div className={styles.card_text_section}>
-                                <p className={styles.card_keywords}>Blog</p>
-
-                                <h1 className={styles.card_header_text}>
-                                    {blog?.title}
-                                </h1>
-                                <p className={styles.description}>
-                                    {shorten(blog?.description, 300) || (
-                                        <span
-                                            dangerouslySetInnerHTML={{
-                                                __html: shorten(
-                                                    blog?.blog_content,
-                                                    300,
-                                                ),
-                                            }}
+                        <Link href={`/blog/${blog?._id}`} key={index}>
+                            <div
+                                className={styles.second_section_card}
+                                key={index}
+                            >
+                                <div className={styles.card_image_section}>
+                                    {!imageErrors.includes(index) ? (
+                                        <Image
+                                            src={
+                                                'https://task.appsdeployer.com/api/' +
+                                                blog?.titleImage
+                                            }
+                                            alt=" "
+                                            width={500}
+                                            height={350}
+                                            className={styles.image_of_blog}
+                                            onError={() =>
+                                                handleImageError(index)
+                                            }
+                                        />
+                                    ) : (
+                                        <Image
+                                            src="/images/blog.jpeg"
+                                            alt=" "
+                                            width={500}
+                                            height={350}
+                                            className={styles.image_of_blog}
                                         />
                                     )}
-                                </p>
-                                <hr className={styles.hr_line}></hr>
-                                <div className={styles.bottom_div_text}>
-                                    <p>{formatDate(blog?.uploadDate)}</p>
-                                    <Link href={`/blog/${blog?._id}`}>
+                                </div>
+                                <div className={styles.card_text_section}>
+                                    <p className={styles.card_keywords}>Blog</p>
+
+                                    <h1 className={styles.card_header_text}>
+                                        {blog?.title}
+                                    </h1>
+                                    <p className={styles.description}>
+                                        {shorten(blog?.description, 300) || (
+                                            <span
+                                                dangerouslySetInnerHTML={{
+                                                    __html: shorten(
+                                                        blog?.blog_content,
+                                                        300,
+                                                    ),
+                                                }}
+                                            />
+                                        )}
+                                    </p>
+                                    <hr className={styles.hr_line}></hr>
+                                    <div className={styles.bottom_div_text}>
+                                        <p>{formatDate(blog?.uploadDate)}</p>
+
                                         <p className={styles.read_more_tag}>
                                             Read More --&gt;
                                         </p>
-                                    </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </section>
             )}
