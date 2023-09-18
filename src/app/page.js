@@ -100,6 +100,11 @@ function Blog() {
             ? text.slice(0, max).split(' ').slice(0, -1).join(' ')
             : text;
     }
+    const [imageErrors, setImageErrors] = useState([]);
+
+    const handleImageError = (index) => {
+        setImageErrors((prevErrors) => [...prevErrors, index]);
+    };
 
     return (
         <>
@@ -135,16 +140,27 @@ function Blog() {
                     ) : (
                         <div className={styles.first_section_card}>
                             <div className={styles.card_image_section}>
-                                <Image
-                                    src={
-                                        'https://task.appsdeployer.com/api/' +
-                                        blogs[0]?.titleImage
-                                    }
-                                    alt=" "
-                                    width={500}
-                                    height={350}
-                                    className={styles.image_of_blog}
-                                />
+                                {!imageErrors.includes(0) ? (
+                                    <Image
+                                        src={
+                                            'https://task.appsdeployer.com/api/' +
+                                            blogs[0]?.titleImage
+                                        }
+                                        alt=" "
+                                        width={500}
+                                        height={350}
+                                        className={styles.image_of_blog}
+                                        onError={() => handleImageError(0)}
+                                    />
+                                ) : (
+                                    <Image
+                                        src="/images/blog.jpeg"
+                                        alt=" "
+                                        width={500}
+                                        height={350}
+                                        className={styles.image_of_blog}
+                                    />
+                                )}
                             </div>
                             <div className={styles.card_text_section}>
                                 <p className={styles.card_keywords}>Blog</p>
@@ -184,16 +200,27 @@ function Blog() {
                     {blogs.slice(1).map((blog, index) => (
                         <div className={styles.second_section_card} key={index}>
                             <div className={styles.card_image_section}>
-                                <Image
-                                    src={
-                                        'https://task.appsdeployer.com/api/' +
-                                        blog?.titleImage
-                                    }
-                                    alt=""
-                                    width={500}
-                                    height={320}
-                                    className={styles.second_image_of_blog}
-                                />
+                                {!imageErrors.includes(index) ? (
+                                    <Image
+                                        src={
+                                            'https://task.appsdeployer.com/api/' +
+                                            blog?.titleImage
+                                        }
+                                        alt=" "
+                                        width={500}
+                                        height={350}
+                                        className={styles.image_of_blog}
+                                        onError={() => handleImageError(index)}
+                                    />
+                                ) : (
+                                    <Image
+                                        src="/images/blog.jpeg"
+                                        alt=" "
+                                        width={500}
+                                        height={350}
+                                        className={styles.image_of_blog}
+                                    />
+                                )}
                             </div>
                             <div className={styles.card_text_section}>
                                 <p className={styles.card_keywords}>Blog</p>

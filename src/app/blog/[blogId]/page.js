@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
                 {
                     url:
                         'https://task.appsdeployer.com/api/' +
-                        blog[0]?.titleImage, // URL to your image
+                            blog[0]?.titleImage || '/images/blog.jpeg', // URL to your image
                     width: 1200, // Image width
                     height: 630, // Image height
                     alt: 'Image Alt Text', // Alt text for the image
