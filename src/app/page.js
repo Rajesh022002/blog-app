@@ -5,7 +5,7 @@ import styles from './blog.module.css';
 import Image from 'next/image';
 import Head from 'next/head';
 import {Pagination} from "@nextui-org/react";
-import "./page.css"
+
 
 function Blog() {
     const [blogs, setBlogs] = useState([]);
